@@ -28,13 +28,13 @@ Web Server が Client に対して提供する API
 - iPOST アプリ
     - メッセージ（テキスト）を iPOST 本体へ送信する
         - POST
-        - /app/messages
+        - /mobile/messages
     - iPOST 本体から送信されたメッセージの一覧を取得する
         - GET
-        - /app/messages
+        - /mobile/messages
     - iPOST 本体から送信された個別のメッセージ（画像）を受信する
         - GET
-        - /app/messages/{id}
+        - /mobile/messages/{id}
 
 ## Web Server の機能
 
