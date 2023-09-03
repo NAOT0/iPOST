@@ -7,7 +7,7 @@ export class MobileController {
 
     @Get("messages")
     getMessages(): string[]{
-        return this.mobileService.getMessages();
+        return this.mobileService.getMessages();     
     }
     @Get("id")
     getId(): string{
