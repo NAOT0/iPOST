@@ -9,6 +9,9 @@ export class MobileController {
     getMessages(): string[]{
         return this.mobileService.getMessages();
     }
-    
+    @Get("id")
+    getId(): string{
+        return this.mobileService.getId();
+    }    
 
 }

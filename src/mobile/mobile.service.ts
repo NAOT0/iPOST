@@ -5,5 +5,9 @@ export class MobileService {
     getMessages(): string[]{
         return ["おはよう","こんにちわ","こんばんわ"]
     }
+
+    getId(): string{
+        return "初めまして"
+    }
 }
 
