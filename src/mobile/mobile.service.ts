@@ -6,8 +6,5 @@ export class MobileService {
         return ["おはよう","こんにちわ","こんばんわ"]
     }
 
-    getId(): string{
-        return "初めまして"
-    }
 }
 
