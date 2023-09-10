@@ -10,18 +10,23 @@ import * as admin from 'firebase-admin';
 export class TextMessagesService {
   constructor() {} // @InjectFirebaseAdmin() private readonly firebase: FirebaseAdmin,
 
-  findById(id: string): TextMessageDto {
-    const dto = new TextMessageDto();
-    dto.id = id;
-    dto.sendsAt = new Date();
-    dto.text = 'スマホから送ってます';
-    dto.senderId = '9999';
-    dto.senderName = 'nanami';
+  async findById(id: string): Promise<TextMessageDto> {
+    const firestore = admin.firestore();
+    const collectionRef = firestore.collection('TextMessages');
+    // const snapshot = await collectionRef.where('id', '==', id).get();
+    const documentRef = collectionRef.doc(id);
+    const document = await documentRef.get();
+    if (!document.exists) {
+      console.log(`テキストメッセージ [${id}] が見つかりません`);
+      return null;
+    }
 
-    return dto;
+    const data = document.data();
+    const message = TextMessageDto.createFromFirestoreData(id, data);
+    return message;
   }
 
-  async create(dto: CreateTextMessageRequestDto) {
+  async create(dto: CreateTextMessageRequestDto): Promise<TextMessageDto> {
     const firestore = admin.firestore();
     const collectionRef = firestore.collection('TextMessages');
     const documentRef = await collectionRef.add({
@@ -29,12 +34,10 @@ export class TextMessagesService {
       sendsAt: admin.firestore.FieldValue.serverTimestamp(),
     });
     const data = (await documentRef.get()).data();
-    const message = new TextMessageDto();
-    message.id = documentRef.id;
-    message.text = data.text;
-    message.senderId = data.senderId;
-    message.senderName = data.senderName;
-    message.sendsAt = new Date(data.sendsAt.seconds * 1000);
+    const message = TextMessageDto.createFromFirestoreData(
+      documentRef.id,
+      data,
+    );
     return message;
   }
 }
