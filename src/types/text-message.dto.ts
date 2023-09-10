@@ -28,3 +28,20 @@ export class TextMessageDto {
    */
   senderName: string;
 }
+
+export class CreateTextMessageRequestDto {
+  /**
+   * メッセージ文
+   */
+  text: string;
+
+  /**
+   * 送信者ID
+   */
+  senderId: string;
+
+  /**
+   * 送信者名
+   */
+  senderName: string;
+}
