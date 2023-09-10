@@ -3,17 +3,15 @@ import {
   CreateTextMessageRequestDto,
   TextMessageDto,
 } from 'src/types/text-message.dto';
-// import { FirebaseAdmin } from 'firebase-admin';
 import * as admin from 'firebase-admin';
 
 @Injectable()
 export class TextMessagesService {
-  constructor() {} // @InjectFirebaseAdmin() private readonly firebase: FirebaseAdmin,
+  constructor() {}
 
   async findById(id: string): Promise<TextMessageDto> {
     const firestore = admin.firestore();
     const collectionRef = firestore.collection('TextMessages');
-    // const snapshot = await collectionRef.where('id', '==', id).get();
     const documentRef = collectionRef.doc(id);
     const document = await documentRef.get();
     if (!document.exists) {
