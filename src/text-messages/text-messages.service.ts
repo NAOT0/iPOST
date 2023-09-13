@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Param } from '@nestjs/common';
 import {
   CreateTextMessageRequestDto,
   TextMessageDto,
@@ -41,16 +41,27 @@ export class TextMessagesService {
 
   async findAllId(): Promise<string[]> {
     const allMessages = [];
-    const id = [];
 
     const db = admin.firestore();
     const idRef = db.collection('TextMessages');
     const snapshot = await idRef.get();
     snapshot.forEach((doc) => {
-      console.log(doc.id, '=>', doc.data());
+      doc.id, '=>', doc.data();
     });
-    id.push(console.log(snapshot.docs.map((doc) => doc.id)));
+
+    // IDのみを取りだし、配列idに保存。ターミナル上で出力するとIDが表紙されるがブラウザで表示させると映らない(解決済み)
+    // ↑原因:配列で返される関数をさらに配列にpushしていた
+    // ターミナル上で表示されたのは一個手前の変数snapshotをlogで表示してたため
+    const id = snapshot.docs.map((doc) => doc.id);
+
+    // メッセージ全体を配列に保存(一応)
     allMessages.push(snapshot);
+
+    // メモ：for文書き方
+    // for (var i = 0; i < id.length; i++) {
+    //   this.findById(id[i]);
+    // }
+
     return id;
   }
 }
