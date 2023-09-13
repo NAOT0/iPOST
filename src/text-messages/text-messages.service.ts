@@ -38,4 +38,17 @@ export class TextMessagesService {
     );
     return message;
   }
+
+  async findAllId(): Promise<string[]> {
+    const id = [];
+
+    const db = admin.firestore();
+    const idRef = db.collection('TextMessages');
+    const snapshot = await idRef.get();
+    snapshot.forEach((doc) => {
+      console.log(doc.id, '=>', doc.data());
+    });
+    id.push(snapshot);
+    return id;
+  }
 }

@@ -12,8 +12,8 @@ export class MachineController {
   ) {}
 
   @Get('messages/')
-  getMessages(): string {
-    return this.machineService.getMessages();
+  async getAllMessages(): Promise<string[]> {
+    return this.textMessagesService.findAllId();
   }
 
   @Get('messages/:id')
