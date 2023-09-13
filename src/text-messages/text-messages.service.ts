@@ -40,6 +40,7 @@ export class TextMessagesService {
   }
 
   async findAllId(): Promise<string[]> {
+    const allMessages = [];
     const id = [];
 
     const db = admin.firestore();
@@ -48,7 +49,8 @@ export class TextMessagesService {
     snapshot.forEach((doc) => {
       console.log(doc.id, '=>', doc.data());
     });
-    id.push(snapshot);
+    id.push(console.log(snapshot.docs.map((doc) => doc.id)));
+    allMessages.push(snapshot);
     return id;
   }
 }
