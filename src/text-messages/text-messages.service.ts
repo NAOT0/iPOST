@@ -59,7 +59,7 @@ export class TextMessagesService {
 
     // メモ：for文書き方
     // for (var i = 0; i < id.length; i++) {
-    //   this.findById(id[i]);
+    //   const ans = this.findById(id[i]);
     // }
 
     return id;

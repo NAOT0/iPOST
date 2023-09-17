@@ -7,7 +7,7 @@ import {
   TextMessageDto,
 } from 'src/types/text-message.dto';
 import { TextMessagesService } from 'src/text-messages/text-messages.service';
-
+import { NotFoundException } from '@nestjs/common';
 @Controller('mobile')
 export class MobileController {
   constructor(
@@ -17,13 +17,19 @@ export class MobileController {
   ) {}
 
   @Get('messages')
-  getMessages(): string[] {
-    return this.mobileService.getMessages();
+  getMessages(): Promise<string[]> {
+    return this.imageMessagesService.findAllId();
   }
 
   @Get('messages/:id')
-  getMessageById(@Param('id') id: string): ImageMessageDto {
-    return this.imageMessagesService.findById(id);
+  async getMessagesById(@Param('id') id: string): Promise<ImageMessageDto> {
+    const message = await this.imageMessagesService.findById(id);
+    if (!message) {
+      throw new NotFoundException(
+        `テキストメッセージ [${id}] が見つかりません`,
+      );
+    }
+    return message;
   }
 
   @Post('messages')
