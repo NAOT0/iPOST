@@ -41,7 +41,7 @@ export class ImageMessagesService {
   async findAllId(): Promise<string[]> {
     const allMessages = [];
     const db = admin.firestore();
-    const idRef = db.collection('TextMessages');
+    const idRef = db.collection('ImageMessages');
     const snapshot = await idRef.get();
     snapshot.forEach((doc) => {
       doc.id, '=>', doc.data();
