@@ -3,10 +3,10 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Hi';
+    return 'Hi! This is iPOST!';
   }
 
   getTest(): string {
-    return "こんにちわ";
+    return 'こんにちわ';
   }
 }
