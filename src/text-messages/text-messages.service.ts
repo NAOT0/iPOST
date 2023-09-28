@@ -52,6 +52,7 @@ export class TextMessagesService {
     // IDのみを取りだし、配列idに保存。ターミナル上で出力するとIDが表紙されるがブラウザで表示させると映らない(解決済み)
     // ↑原因:配列で返される関数をさらに配列にpushしていた
     // ターミナル上で表示されたのは一個手前の変数snapshotをlogで表示してたため
+    // ここのIDを時間順に並び返す作業
     const id = snapshot.docs.map((doc) => doc.id);
 
     // メッセージ全体を配列に保存(一応)
