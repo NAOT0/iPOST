@@ -42,6 +42,7 @@ export class ImageMessagesService {
     const allMessages = [];
     // <やるべきこと>
     // ここのIDを時間順（更新順に並び変える）
+    // クラウドに上がったかの確認
     const db = admin.firestore();
     const idRef = db.collection('ImageMessages');
     const snapshot = await idRef.get();
