@@ -41,11 +41,12 @@ export class ImageMessagesService {
   async findAllId(): Promise<string[]> {
     const db = admin.firestore();
     const idRef = db.collection('ImageMessages');
-    const snapshot = await idRef.get();
-    snapshot.forEach((doc) => {
-      doc.id, '=>', doc.data();
+    const q = await idRef.orderBy('sendsAt', 'desc').get();
+    q.forEach((document) => {
+      console.log(document.id, '=>', document.data());
     });
-    const id = snapshot.docs.map((doc) => doc.id);
+
+    const id = q.docs.map((doc) => doc.id);
     return id;
   }
 }

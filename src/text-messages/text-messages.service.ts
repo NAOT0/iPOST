@@ -4,6 +4,7 @@ import {
   TextMessageDto,
 } from 'src/types/text-message.dto';
 import * as admin from 'firebase-admin';
+import { queueScheduler } from 'rxjs';
 
 @Injectable()
 export class TextMessagesService {
@@ -44,19 +45,24 @@ export class TextMessagesService {
 
     const db = admin.firestore();
     const idRef = db.collection('TextMessages');
-    const snapshot = await idRef.get();
-    snapshot.forEach((doc) => {
-      doc.id, '=>', doc.data();
+    const q = await idRef.orderBy('sendsAt', 'desc').get();
+    q.forEach((document) => {
+      console.log(document.id, '=>', document.data());
     });
+
+    // const snapshot = await idRef.get();
+    // snapshot.forEach((doc) => {
+    //   doc.id, '=>', doc.data();
+    // });
 
     // IDのみを取りだし、配列idに保存。ターミナル上で出力するとIDが表紙されるがブラウザで表示させると映らない(解決済み)
     // ↑原因:配列で返される関数をさらに配列にpushしていた
     // ターミナル上で表示されたのは一個手前の変数snapshotをlogで表示してたため
     // ここのIDを時間順に並び返す作業
-    const id = snapshot.docs.map((doc) => doc.id);
+    const id = q.docs.map((doc) => doc.id);
 
     // メッセージ全体を配列に保存(一応)
-    allMessages.push(snapshot);
+    allMessages.push(q);
 
     // メモ：for文書き方
     // for (var i = 0; i < id.length; i++) {
