@@ -7,6 +7,6 @@ export class AppService {
   }
 
   getTest(): string {
-    return 'こんにちわ';
+    return 'サーバーは正常です';
   }
 }

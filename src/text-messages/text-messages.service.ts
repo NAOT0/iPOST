@@ -4,7 +4,6 @@ import {
   TextMessageDto,
 } from 'src/types/text-message.dto';
 import * as admin from 'firebase-admin';
-import { queueScheduler } from 'rxjs';
 
 @Injectable()
 export class TextMessagesService {
