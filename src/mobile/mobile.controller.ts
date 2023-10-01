@@ -21,6 +21,11 @@ export class MobileController {
     return this.imageMessagesService.findAllId();
   }
 
+  @Get('messages/all')
+  async getAll(): Promise<string[]> {
+    return this.textMessagesService.findAllMessages();
+  }
+
   @Get('messages/:id')
   async getMessagesById(@Param('id') id: string): Promise<ImageMessageDto> {
     const message = await this.imageMessagesService.findById(id);

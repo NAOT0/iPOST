@@ -49,4 +49,15 @@ export class ImageMessagesService {
     const id = q.docs.map((doc) => doc.id);
     return id;
   }
+  async findAllMessages(): Promise<string[]> {
+    const db = admin.firestore();
+    const allMessagesRef = db.collection('ImageMessages');
+    const all = await allMessagesRef.orderBy('sendsAt', 'desc').get();
+    const allMessages = [];
+    all.forEach((doc) => {
+      allMessages.push(doc.id, '=>', doc.data());
+    });
+
+    return allMessages;
+  }
 }

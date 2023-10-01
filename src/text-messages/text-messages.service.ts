@@ -4,6 +4,7 @@ import {
   TextMessageDto,
 } from 'src/types/text-message.dto';
 import * as admin from 'firebase-admin';
+import { log } from 'console';
 
 @Injectable()
 export class TextMessagesService {
@@ -62,6 +63,7 @@ export class TextMessagesService {
 
     // メッセージ全体を配列に保存(一応)
     allMessages.push(q);
+    console.log(allMessages);
 
     // メモ：for文書き方
     // for (var i = 0; i < id.length; i++) {
@@ -69,5 +71,17 @@ export class TextMessagesService {
     // }
 
     return id;
+  }
+
+  async findAllMessages(): Promise<string[]> {
+    const db = admin.firestore();
+    const allMessagesRef = db.collection('TextMessages');
+    const all = await allMessagesRef.orderBy('sendsAt', 'desc').get();
+    const allMessages = [];
+    all.forEach((doc) => {
+      allMessages.push(doc.id, '=>', doc.data());
+    });
+
+    return allMessages;
   }
 }

@@ -22,6 +22,11 @@ export class MachineController {
     return this.textMessagesService.findAllId();
   }
 
+  @Get('messages/all')
+  async getAll(): Promise<string[]> {
+    return this.textMessagesService.findAllMessages();
+  }
+
   @Get('messages/:id')
   async getMessagesById(@Param('id') id: string): Promise<TextMessageDto> {
     const message = await this.textMessagesService.findById(id);
