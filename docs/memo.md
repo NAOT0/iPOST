@@ -20,6 +20,9 @@ Web Server が Client に対して提供する API
     - POST
     - /machine/messages
   - iPOST アプリから送信されたメッセージの一覧を取得する
+  - すべてのメッセージを取得
+  - GET
+  - /machine/messages/all
     - GET
     - /machine/messages
   - iPOST アプリから送信された個別のメッセージ（テキスト）を受信する
@@ -35,6 +38,10 @@ Web Server が Client に対して提供する API
   - iPOST 本体から送信された個別のメッセージ（画像）を受信する
     - GET
     - /mobile/messages/{id}
+  - iPOST アプリから送信されたメッセージの一覧を取得する
+    - すべてのメッセージを取得
+    - GET
+    - /mobile/messages/all
 
 ## Web Server の機能
 
