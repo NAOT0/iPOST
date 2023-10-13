@@ -23,7 +23,7 @@ export class MobileController {
 
   @Get('messages/all')
   async getAll(): Promise<string[]> {
-    return this.textMessagesService.findAllMessages();
+    return this.imageMessagesService.findAllMessages();
   }
 
   @Get('messages/:id')
