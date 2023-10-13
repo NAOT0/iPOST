@@ -41,8 +41,6 @@ export class TextMessagesService {
   }
 
   async findAllId(): Promise<string[]> {
-    const allMessages = [];
-
     const db = admin.firestore();
     const idRef = db.collection('TextMessages');
     const q = await idRef.orderBy('sendsAt', 'desc').get();
@@ -60,11 +58,6 @@ export class TextMessagesService {
     // ターミナル上で表示されたのは一個手前の変数snapshotをlogで表示してたため
     // ここのIDを時間順に並び返す作業
     const id = q.docs.map((doc) => doc.id);
-
-    // メッセージ全体を配列に保存(一応)
-    allMessages.push(q);
-    console.log(allMessages);
-
     // メモ：for文書き方
     // for (var i = 0; i < id.length; i++) {
     //   const ans = this.findById(id[i]);
