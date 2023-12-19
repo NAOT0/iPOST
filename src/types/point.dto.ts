@@ -15,7 +15,7 @@ export class PointDto {
    * ポイント残高
    */
   deposit: string;
-
+  senderId: string;
   /**
    * 名前
    */
@@ -28,8 +28,9 @@ export class PointDto {
     const message = new PointDto();
     message.id = id;
     message.deposit = data.deposit;
+    // message.senderId = data.senderId;
     message.name = data.name;
-    message.sendsAt = new Date(data.sendsAt.seconds * 1000);
+    // message.sendsAt = new Date(data.sendsAt.seconds * 1000);
     return message;
   }
 }
