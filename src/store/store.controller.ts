@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Body, Post } from '@nestjs/common';
 import { PointService } from 'src/point/point.service';
 import { PointDto } from 'src/types/point.dto';
 import { NotFoundException } from '@nestjs/common';
