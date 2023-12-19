@@ -7,6 +7,8 @@ import { MachineModule } from './machine/machine.module';
 import { TextMessagesModule } from './text-messages/text-messages.module';
 // import { FirebaseModule } from 'nestjs-firebase';
 import { UserModule } from './user/user.module';
+import { StoreModule } from './store/store.module';
+import { PointModule } from './point/point.module';
 
 @Module({
   imports: [
@@ -15,6 +17,8 @@ import { UserModule } from './user/user.module';
     MachineModule,
     TextMessagesModule,
     UserModule,
+    StoreModule,
+    PointModule,
     // FirebaseModule.forRoot({
     //   googleApplicationCredential: 'config/ipost-firebase-credentials.json',
     // }),
