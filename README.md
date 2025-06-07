@@ -1,73 +1,68 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# I-POST ~世界一シンプルなコミュニケーション~
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+I-POSTは、デジタルに慣れ親しんだ孫世代と、手書きのコミュニケーションを好む祖父母世代の間の壁を取り除くことを目的とした、新しいコミュニケーションツールです。アナログとデジタルをオンラインでつなぎ、誰もがストレスなく使える「世界一シンプルなコミュニケーション」を目指します。
+このプロジェクトは全国高等専門学校プログラミングコンテスト（第34回福井大会）にて企業賞を受賞しました。
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 背景にある課題
 
-## Description
+I-POSTは、現代社会が抱える2つの大きな課題に着目しました。
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+1.  **世代間のデジタルデバイド**
+    近年、シニア世代のスマートフォン普及率は約90%に達していますが、その一方で「使いこなせている」と感じる人は約30%に留まっています。多くの高齢者にとって、手書きなどのアナログな手法への親しみが根強く残っており、世代間のコミュニケーションに隔たりが生まれています。
 
-## Installation
+2.  **高齢者の健康課題**
+    2025年には、65歳以上の高齢者のうち約730万人（17%）が認知症になると推定されています。しかし、手工芸など「手を動かす」行為を実践することで、認知症のリスクが20〜29%低下することが研究で示されています。I-POSTは手紙を書くという行為を自然に促し、認知症予防に貢献する機会を創出します。
 
-```bash
-$ npm install
-```
+## I-POSTの仕組み
 
-## Running the app
+I-POSTは、世代ごとに最適化されたインターフェースを提供します。
 
-```bash
-# development
-$ npm run start
+#### 👴 👵 祖父母側の使い方（アナログ操作）
+* **手紙で送信**：伝えたいことを手紙に書き、I-POST本体に投函するだけでメッセージを送信できます。投函された手紙はカメラで撮影され、画像データとして相手に送られます。
+* **ディスプレイで受信**：孫世代から送られてきたメッセージは、I-POST本体の上部ディスプレイに表示され、簡単に読むことができます。
 
-# watch mode
-$ npm run start:dev
+#### 📱 孫世代の使い方（デジタル操作）
+* **専用アプリで送受信**：使い慣れたスマートフォン上の専用アプリで、テキストメッセージの送受信を行います。
+* **手書きの手紙を受信**：祖父母から送られてきた温かみのある手書きの手紙を、画像としてアプリで受け取ることができます。
 
-# production mode
-$ npm run start:prod
-```
+## 3つの強み
 
-## Test
+1.  **ストレスフリーな体験**
+    孫世代は普段通りスマートフォンを、祖父母世代は慣れ親しんだ手紙を用いるため、互いに新しい操作を覚えるストレスがありません。これは、若者世代の普及率が約1.9%と極端に低いFAXでは実現できない大きな利点です。
 
-```bash
-# unit tests
-$ npm run test
+2.  **高齢者に最適化されたシンプルなUI**
+    I-POST本体のディスプレイは、お年寄りでも直感的に使えるように設計されています。
+    * 画面には必要最低限の情報のみを表示
+    * 文字は大きめのフォントサイズを採用
+    * 「次へ」などのボタンで直感的な操作が可能
 
-# e2e tests
-$ npm run test:e2e
+3.  **低い使用ハードル**
+    シンプルな設計により、誰でも簡単に使い始めることができます。
 
-# test coverage
-$ npm run test:cov
-```
+## システム構成
 
-## Support
+システムは、I-POSTハードウェア、クラウドバックエンド、およびスマートフォンアプリで構成されています。
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+* **I-POSTハードウェア**: Raspberry Pi 3 Model B、Logicool C505 カメラ
+* **バックエンド**: Google Cloud Run, Firebase
+* **クライアント**: 専用スマートフォンアプリ
 
-## Stay in touch
+<details>
+<summary>データフロー</summary>
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+* **孫 → 祖父母**:
+    1. 孫がアプリからテキストメッセージを送信します。
+    2. メッセージはFirebaseに保存されます。
+    3. I-POST本体（Raspberry Pi）がFirebaseからデータを取得し、ディスプレイに表示します。
 
-## License
+* **祖父母 → 孫**:
+    1. 祖父母が手紙をI-POSTに投函します。
+    2. 内蔵カメラが手紙を撮影します。
+    3. 撮影された画像はCloud Run経由で処理され、Firebaseに保存されます。
+    4. 孫のスマートフォンアプリがFirebaseから画像データを取得し、表示します。
 
-Nest is [MIT licensed](LICENSE).
+</details>
+
+## APIシステム設計
+
+APIシステムの詳細な設計については、 [docs/memo.md](docs/memo.md) を参照してください。
